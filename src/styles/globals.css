@@ -1,0 +1,226 @@
+:root {
+  --primary: #1e3c72;
+  --secondary: #2a5298;
+  --danger: #e63946;
+  --warning: #f4a261;
+  --safe: #2a9d8f;
+  --bg: #f8f9fa;
+  --text: #212529;
+  --border: #dee2e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Map Container */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  padding: 8px 0 12px;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #6c757d;
+  font-size: 11px;
+  gap: 4px;
+  transition: color 0.3s;
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+/* SOS Button */
+.sos-button {
+  background: var(--danger);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(230,57,70,0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.sos-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(230,57,70,0.6);
+}
+
+.sos-button.active {
+  background: #6c757d;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Autocomplete */
+.autocomplete-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  list-style: none;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.autocomplete-list li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.autocomplete-list li:hover {
+  background: #f8f9fa;
+}
+
+/* Form Elements */
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Pages */
+.contacts-page,
+.reports-page, 
+.sos-page, 
+.settings-page {
+  padding: 20px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+/* Contact Card */
+.contact-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Risk Indicator */
+.risk-indicator {
+  padding: 10px 18px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Reports List */
+.reports-list {
+  list-style: none;
+}
+
+.reports-list li {
+  padding: 15px;
+  background: white;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Settings */
+.settings-page label {
+  display: block;
+  margin: 15px 0;
+  font-weight: 500;
+}
+
+.settings-page select {
+  margin-top: 5px;
+}
